@@ -13,11 +13,11 @@
         }
 
         .container {
-            max-width: 600px;
+            max-width: 700px;
             margin: 50px auto;
             background-color: #fff;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 16px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -43,7 +43,7 @@
         select {
             width: 100%;
             padding: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
@@ -55,14 +55,21 @@
 
         input[type="checkbox"] {
             margin-right: 5px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .checkbox-label {
+            display: inline-block;
+            vertical-align: middle;
         }
 
         button {
-            padding: 10px 20px;
+            padding: 15px 30px;
             background-color: #4caf50;
             color: #fff;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
             display: block;
             margin: 0 auto;
@@ -76,7 +83,7 @@
 <body>
     <div class="container">
         <h1>Опросная форма</h1>
-        <p>Выполнено Абдусалимзода Искандаром, хозяйном кота Федота. Когда Искандар писал этот текст, Федот лежал рядом с ним.</p>
+        
         
         <form id="survey-form">
             <label for="name">Имя:</label>
@@ -98,23 +105,26 @@
                 <option value="good">Хорошо</option>
                 <option value="average">Средне</option>
                 <option value="poor">Плохо</option>
+
             </select>
 
             <label>Как вы узнали о нас?</label>
             <div>
                 <input type="checkbox" id="friend" name="source" value="friend">
-                <label for="friend">От друга</label>
+                <label class="checkbox-label" for="friend">От друга</label>
             </div>
             <div>
                 <input type="checkbox" id="internet" name="source" value="internet">
-                <label for="internet">Из интернета</label>
+                <label class="checkbox-label" for="internet">Из интернета</label>
             </div>
             <div>
                 <input type="checkbox" id="advertisement" name="source" value="advertisement">
-                <label for="advertisement">Из рекламы</label>
+                <label class="checkbox-label" for="advertisement">Из рекламы</label>
             </div>
 
-            <button type="submit">Отправить</button>
+            <button style="font-size: 16px"; type="submit">Отправить</button>
+            <br>
+            <p>Выполнено Абдусалимзода Искандаром, хозяином кота Федота. Федот сидел рядом со мной, когда я писал сей текст.</p>
         </form>
     </div>
 </body>
