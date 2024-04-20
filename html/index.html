@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опросная форма</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, p {
+            text-align: center;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        select {
+            height: 40px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Опросная форма</h1>
+        <p>Выполнено Абдусалимзода Искандаром, хозяйном кота Федота. Когда Искандар писал этот текст, Федот лежал рядом с ним.</p>
+        
+        <form id="survey-form">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="age">Возраст:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="feedback">Отзыв:</label>
+            <textarea id="feedback" name="feedback" rows="5" required></textarea>
+
+            <label for="rating">Оцените наш сервис:</label>
+            <select id="rating" name="rating" required>
+                <option value="">Выберите оценку</option>
+                <option value="excellent">Отлично</option>
+                <option value="good">Хорошо</option>
+                <option value="average">Средне</option>
+                <option value="poor">Плохо</option>
+            </select>
+
+            <label>Как вы узнали о нас?</label>
+            <div>
+                <input type="checkbox" id="friend" name="source" value="friend">
+                <label for="friend">От друга</label>
+            </div>
+            <div>
+                <input type="checkbox" id="internet" name="source" value="internet">
+                <label for="internet">Из интернета</label>
+            </div>
+            <div>
+                <input type="checkbox" id="advertisement" name="source" value="advertisement">
+                <label for="advertisement">Из рекламы</label>
+            </div>
+
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+</body>
+</html>
