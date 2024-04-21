@@ -1,0 +1,32 @@
+body {
+    min-width: 320px;
+    font-size: 14px;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: black;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 30px;
+    margin-right: 0px;
+    color: white;
+    font-size: 22px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+a{
+    color: #b4ad9e;
+}
+a:hover {
+    color: #898377;
+}
