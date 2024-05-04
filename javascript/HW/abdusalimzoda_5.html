@@ -1,0 +1,63 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <script>
+    function Complete1()
+    {
+        if(document.Sel3.Pwd.value==document.Sel3.Pwd1.value)
+            alert("Вас зарегистрировали\nID="+document.Sel3.Id.value+"\nPassword="+document.Sel3.Pwd.value);
+        else
+            alert("Ошибка: пароли не совпадают\nПопробуйте еще раз");
+    }
+    </script>
+    <style>
+        H1 {
+            font-size: 120%;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            color: #333366;
+        }
+        FORM {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        BUTTON {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            border: 2px solid teal;
+            padding: 6px 18px;
+            background: transparent;
+            margin-left: 50px;
+        }
+        BUTTON:hover {
+            cursor: pointer;
+            background: rgba(128, 128, 128, 0.45);
+        }
+        TABLE {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<H1>Регистрация</H1>
+<FORM NAME="Sel3">
+    <TABLE>
+        <TR><TD><B>Идентификатор:<B></TD>
+            <TD><INPUT NAME="Id" SIZE=20
+                       onBlur="this.value=this.value.toUpperCase()"></TD></TR>
+        <TR><TD><B>Пароль:<B></TD>
+            <TD><INPUT TYPE="password" NAME="Pwd" SIZE=20
+                       onFocus="this.select();"></TD></TR>
+        <TR><TD><B>Проверка пароля:<B></TD>
+            <TD><INPUT TYPE="password" NAME="Pwd1" SIZE=20
+                       onFocus="this.select();"></TD></TR>
+    </TABLE>
+    <BUTTON TYPE="button" onClick="Complete1();">Готово</BUTTON>
+    <BUTTON TYPE="reset">Сброс</BUTTON>
+</FORM>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function showMessage() {
+        let message = "Привет, я JavaScript!"; // локальная переменная
+
+        alert(message);
+    }
+
+    showMessage(); // Привет, я JavaScript!
+
+    // alert(message)
+    // проанализировал код: переменная message локально доступна только в функции showMessage,
+    // я ее закомментил, чтобы программа работала
+
+
+
+
+
+
+
+    // палиндром
+    const str = "Привет, я JavaScript!"; // строка
+    const reversedSurname = str.toLowerCase().split('').reverse().join('');
+    if (str.toLowerCase() === reversedSurname) {
+        alert('Проверка на палиндром: \n' + str + " - палиндром!");
+    } else {
+        alert('Проверка на палиндром: \n' + str + " - не палиндром!");
+    }
+
+
+
+
+
+
+    // фильтрация отрицательных цифр
+    const array = [2, -5, 7, -3, 9, 0, -4, 6, -8, 1, 12];
+    const filteredArray = array.map(number => (
+        number < 0
+            ?
+            Math.pow(number, 2)
+            :
+            number
+        )
+    )
+
+    alert(
+        '- Фильтруем отрицательные цифры и возводим их в квадрат.\n'
+        +
+        'Входные цифры: ' + array.join(', ') + '\n'
+        +
+        'На выходе получаем крч: ' + filteredArray.join(', ')
+    );
+
+
+    // класс имя
+    class Name {
+        constructor(name) {
+            this.name = name;
+        }
+
+        showResultWithName() {
+            alert(`Введено новое имя: ${this.name}`);
+        }
+    }
+
+    const newBeautifulName = new Name("Искандар");
+    newBeautifulName.showResultWithName();
+
+
+
+    // класс реверс имени
+    class GettingReversedName {
+        constructor(name) {
+            this.name = name;
+        }
+
+        reverseName() {
+            const reversedName = this.name.split('').reverse().join('');
+            alert(`Было: ` + this.name + '\nСтало: ' + reversedName);
+        }
+    }
+
+    const getName = new GettingReversedName("Искандар");
+    getName.reverseName();
+
+
+</script>
+</body>
+</html>

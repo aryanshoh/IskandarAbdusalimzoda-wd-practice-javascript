@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p>Доступные e-mail'ы</p>
+<ul>
+    <li>apple@gmail.com</li>
+    <li>company@mail.com</li>
+    <li>tesla@gmail.com</li>
+    <li>amazon@gmail.com</li>
+</ul>
+<span id="#span-email">Введите E-mail:</span>
+<input type="email" id="#input-email"/>
+
+<button type="button" id="#btn-enter">Проверить</button>
+
+<style>
+    #span-email {
+        margin-right: 5px;
+    }
+</style>
+
+
+
+<script>
+    // Калькулятор
+    const sum = (a, b) => a + b;
+    const diff = (a, b) => a - b;
+    const multiplication = (a, b) => a * b;
+    const division = (a, b) => a / b;
+
+    const calculator = () => {
+        const num1 = parseFloat(prompt('Введите первое число:'));
+        const num2 = parseFloat(prompt('Введите второе число:'));
+        const operation = prompt('Введите операцию: "+", "-", "*", "/"');
+
+        let result;
+        switch (operation) {
+            case '+':
+                result = sum(num1, num2);
+                break;
+            case '-':
+                result = diff(num1, num2);
+                break;
+            case '*':
+                result = multiplication(num1, num2);
+                break;
+            case '/':
+                result = division(num1, num2);
+                break;
+            default:
+                alert('Ошибка: вы ввели неправильную операцию!');
+                return;
+        }
+
+        alert(`Результат: ${result}`);
+    };
+
+    calculator();
+
+
+    // фанкшн экспрешн
+    const answer = prompt('Столица Франции?');
+    answer === 'Париж'
+        ?
+        alert('Правильный ответ!')
+        :
+        alert('Неправильный ответ!');
+
+
+
+
+
+
+
+    // палиндром фамилия стрелочная функция
+    const mySurname = "Абдусалимзода"; // строка
+
+    const reverseSurname = () => {
+        const reversedSurname = mySurname.toLowerCase().split('').reverse();
+        if (mySurname.toLowerCase() === reversedSurname) {
+            alert('Проверка на палиндром: \n' + mySurname + " - палиндром!");
+        } else {
+            alert('Проверка на палиндром: \n' + mySurname + " - не палиндром!");
+        }
+    }
+
+    reverseSurname(mySurname);
+
+
+    // Средние значение цифр массива
+    const numbers = [1, 4, 8, 10, 13, 17, 18, 20, 21];
+
+    const getAverageValue = (arr) => {
+        const sum = arr.reduce((total, num) => total + num, 0)
+        return sum/arr.length;
+    };
+
+    alert(
+        'Среднее значение из набора чисел.\n'
+        +
+        'Набор чисел: ' + numbers.join(', ')
+        +
+        '\nПолучаем среднее значение: ' + getAverageValue(numbers)
+    )
+
+    // дни до нового года
+    const todayMouth = new Date().getMonth() ; // 0-ой месяц это 1 в году, получаем 3 если мы в апреле
+    const todayDay = new Date().getDate();
+    const pastDays = todayMouth * 30 + todayDay;
+    const daysToNewYear = 365 - pastDays;
+    alert('До нового года ' + daysToNewYear + ' дней');
+
+
+    // пустая функция
+    const someFn = () => {};
+
+
+
+
+
+
+
+
+
+    // разные операции с помощью стрелочных функций над массивом цифр
+    const numbersForUse = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    // для сложения
+    const sumArr = numbers => numbers.reduce((total, num) => total + num, 0);
+
+    // четные
+    const evenNumbers = numbers => numbers.filter(num => num % 2 === 0);
+
+    // умножине на 2
+    const multiplyTwo = numbers => numbers.map(num => num * 2);
+
+    alert(
+        'Есть цифры: ' + numbersForUse.join(', ')
+        +
+        "\nСумма всех цифр: " + sumArr(numbersForUse)
+        +
+        "\nЧетные числа: " + evenNumbers(numbersForUse).join(', ')
+        +
+        "\nКаждую цифру умножили на 2: " + multiplyTwo(numbersForUse).join(', ')
+    )
+
+
+
+
+
+    // Создайте массив с e-mail. Организуйте фильтр на странице html по названию почты. Сверху есть немного верстки)
+    const inputEmail = document.getElementById('#input-email');
+    const btnEnter = document.getElementById('#btn-enter');
+    const trueEmails = ['apple@gmail.com', 'company@mail.com', 'tesla@gmail.com', 'amazon@gmail.com'];
+
+    // кнопка для проверки
+    const validateEmail = () => {
+        if (!inputEmail.value) {
+            alert('Вы не ввели Email!');
+            return 1;
+        };
+
+        if (!trueEmails.includes(inputEmail.value.trim())) {
+            alert('Этот e-mail запрещен!');
+            inputEmail.value = '';
+            return 1;
+        };
+
+        alert('Email успешно прошел проверку.');
+        inputEmail.value = '';
+    }
+
+
+    // слушатели всякие
+    btnEnter.addEventListener('click', validateEmail);
+
+</script>
+</body>
+</html>
