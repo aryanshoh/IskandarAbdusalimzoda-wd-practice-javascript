@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  // Считает от 1 до 10
+  for (let i = 1; i <= 10; i++) {
+    alert('Считаем до 10: ' + i);
+  }
+
+  // Игра застолье
+  let answer = 0;
+  while (answer !== 1) {
+    answer = parseInt(prompt('Еще по одной? Введите 1, чтобы закончить.'));
+  }
+
+  // Факториал
+  function getFactorial(n) {
+    if (n === 0 || n === 1)
+      return 1;
+    for (let i = n - 1; i >= 1; i--) {
+      n *= i;
+    }
+    return n;
+  };
+
+  const myNumber = 1; // Это номер из журнала
+  const factorial = getFactorial(myNumber + 14);
+  alert("Факториал числа: " + (myNumber + 14) + " равен - " + factorial);
+
+  // палиндром
+  const mySurname = "ава"; // фамилия
+  const reversedSurname = mySurname.toLowerCase().split('').reverse().join('');
+
+  if (mySurname === reversedSurname) {
+    alert('Проверка на палиндром: \n' + mySurname + " - палиндром!");
+  } else {
+    alert('Проверка на палиндром: \n' + mySurname + " - не палиндром!");
+  }
+
+  // простые числа
+  function isPrimaryNumber(num) {
+    for (let i = 2; i < num; i++)
+      if (num % i === 0) return false;
+    return num !== 1;
+  }
+
+  let maxNumber = myNumber + 14; // это номер из журнала, прибавил рандомное число 14, чтобы получилось, потому что с 1 особо не раскатаешься
+  let arrayPrimaryNumbers = [];
+  for (let i = 1; i <= maxNumber; i++) {
+    if (isPrimaryNumber(i)) {
+        arrayPrimaryNumbers.push(i)
+    }
+  }
+  alert("Простые числа до " + maxNumber + ': ' + arrayPrimaryNumbers.join(', ') + '.')
+
+
+</script>
+</body>
+</html>
