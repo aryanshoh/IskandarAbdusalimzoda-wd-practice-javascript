@@ -1,0 +1,112 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+</head>
+<body>
+
+    <script>
+
+      // никогда в блэкджек не играл. сделал настолько, насколько смог понять игру
+      
+        // колоды
+        let deck = [
+            '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A',
+            '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A',
+            '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A',
+            '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'
+        ];
+
+        // перемешка колоды
+        function shuffleDeck(deck) {
+            for (let i = deck.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [deck[i], deck[j]] = [deck[j], deck[i]];
+            }
+        }
+
+        //раздача
+        function dealCards(deck, numCards) {
+            const hand = [];
+            for (let i = 0; i < numCards; i++) {
+                hand.push(deck.shift());
+            }
+            return hand;
+        }
+
+        //подсчет
+        function getHandValue(hand) {
+            let value = 0;
+            let aceCount = 0;
+            for (let card of hand) {
+                if (card === 'J' || card === 'Q' || card === 'K') {
+                    value += 10;
+                } else if (card === 'A') {
+                    aceCount += 1;
+                    value += 11;
+                } else {
+                    value += parseInt(card);
+                }
+            }
+            while (aceCount > 0 && value > 21) {
+                value -= 10;
+                aceCount -= 1;
+            }
+            return value;
+        }
+
+        //игра
+        function playBlackJack() {
+            shuffleDeck(deck);
+            const playerHand = dealCards(deck, 2);
+            const dealerHand = dealCards(deck, 2);
+
+            alert('Ваши карты: ' + '[' + playerHand.join(', ') + ']');
+            alert('Карты дилера: ' + `[${dealerHand[0]}, ` + 'Скрытая карта]');
+
+            let playerValue = getHandValue(playerHand);
+            let dealerValue = getHandValue(dealerHand);
+
+            // Ход игрока
+            while (playerValue < 21) {
+                let response = confirm('Хотите взять карту? (ОК - да/Отмена - нет)');
+                if (response) {
+                    playerHand.push(deck.shift());
+                    playerValue = getHandValue(playerHand);
+                    alert('Ваши карты: ' + '[' + playerHand.join(', ') + ']');
+                    if (playerValue > 21) {
+                        alert('Перебор! Вы проиграли.');
+                        return;
+                    }
+                } else {
+                    break;
+                }
+            }
+
+            // Ход дилера
+            alert('Дилер открывает вторую карту: ' + dealerHand[1]);
+            alert('Карты дилера: ' + '[' + dealerHand.join(', ') + ']');
+            while (dealerValue < 17) {
+                dealerHand.push(deck.shift());
+                dealerValue = getHandValue(dealerHand);
+            }
+
+
+            // Определение победителя
+            if (dealerValue > 21) {
+                alert('Дилер проиграл. Вы выиграли!');
+            } else if (playerValue > dealerValue) {
+                alert('Вы победили!');
+            } else if (playerValue === dealerValue) {
+                alert('Ничья');
+            } else {
+                alert('Дилер победил');
+            }
+        }
+
+
+        playBlackJack();
+
+    </script>
+
+</body>
+</html>
